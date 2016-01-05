@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    unless current_user != @user
+    unless current_user !! @user
      redirect_to root_path
     end
   end
@@ -40,7 +40,8 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation,
+                                 :area)
   end
   
   def set_user
