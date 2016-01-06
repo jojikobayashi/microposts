@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'followings'
+      get 'followers'
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
