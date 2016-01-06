@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   
   def show 
-   @user = User.find(params[:id])
+    @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
   end
   
   def new
-    @user = User.new
+    @user = User.new 
   end
   
   def create
@@ -17,6 +17,16 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def followings
+    @user = User.find(params[:id])
+    @following_users = @user.following_users
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @follower_users = @user.followers.(source :follower)
   end
 
   private
