@@ -20,13 +20,13 @@ class UsersController < ApplicationController
   end
   
   def edit
-    unless current_user !! @user
+    unless current_user == @user
      redirect_to root_path
     end
   end
 
   def update
-    unless current_user != @user
+    unless current_user == @user
      redirect_to root_path
     end
     if @user.update(user_params)
