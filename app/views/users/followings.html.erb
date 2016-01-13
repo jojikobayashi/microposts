@@ -1,3 +1,4 @@
 <% @following_users.each do |user| %>
+   <%= gravatar_for @user %>
    <h2><%= user.name %><small><%= user.email %></small></h2>
 <% end %>
